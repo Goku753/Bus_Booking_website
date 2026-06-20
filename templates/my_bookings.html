@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>My Bookings</title>
+
+```
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        background:#f4f7fc;
+    }
+
+    .header{
+        background:#2563eb;
+        color:white;
+        padding:20px;
+        text-align:center;
+        font-size:30px;
+        font-weight:bold;
+    }
+
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:30px auto;
+    }
+
+    .card{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        margin-bottom:20px;
+        color:#1f2937;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+    }
+
+    th{
+        background:#2563eb;
+        color:white;
+        padding:15px;
+        text-align:left;
+    }
+
+    td{
+        padding:15px;
+        border-bottom:1px solid #ddd;
+    }
+
+    tr:hover{
+        background:#f9fafb;
+    }
+
+    .seat{
+        background:#22c55e;
+        color:white;
+        padding:6px 12px;
+        border-radius:6px;
+        font-weight:bold;
+    }
+
+    .cancel-btn{
+        background:#dc3545;
+        color:white;
+        padding:8px 14px;
+        border-radius:6px;
+        text-decoration:none;
+        font-weight:bold;
+    }
+
+    .cancel-btn:hover{
+        background:#bb2d3b;
+    }
+
+    .btns{
+        margin-top:25px;
+        text-align:center;
+    }
+
+    .btn{
+        display:inline-block;
+        text-decoration:none;
+        padding:12px 22px;
+        border-radius:8px;
+        color:white;
+        margin:5px;
+        font-weight:bold;
+    }
+
+    .home{
+        background:#2563eb;
+    }
+
+    .search{
+        background:#16a34a;
+    }
+
+    .empty{
+        text-align:center;
+        padding:30px;
+        color:#666;
+        font-size:18px;
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="header">
+    🎫 My Bookings
+</div>
+
+<div class="container">
+
+```
+<div class="card">
+
+    <h2>Your Booking History</h2>
+
+    {% if bookings %}
+
+    <table>
+
+        <tr>
+            <th>#</th>
+            <th>Passenger</th>
+            <th>Bus Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Seat</th>
+            <th>Travel Date</th>
+            <th>Ticket</th>
+            <th>Action</th>
+        </tr>
+
+        {% for booking in bookings %}
+        <tr>
+
+            <td>{{ loop.index }}</td>
+
+            <td>{{ booking.name }}</td>
+
+            <td>{{ booking.bus_name }}</td>
+
+            <td>{{ booking.from_city }}</td>
+
+            <td>{{ booking.to_city }}</td>
+
+            <td>
+                <span class="seat">
+                    Seat {{ booking.seat_no }}
+                </span>
+            </td>
+
+            <td>{{ booking.travel_date }}</td>
+            <td>
+                <a href="/ticket/{{ booking.id }}"
+                    style="
+                    background:#2563eb;
+                    color:white;
+                    padding:8px 12px;
+                    border-radius:6px;
+                    text-decoration:none;">
+                    📄 PDF
+                </a>
+            </td>
+
+       
+            <td>
+                <a
+                    href="/cancel-booking/{{ booking.id }}"
+                    class="cancel-btn"
+                    onclick="return confirm('Are you sure you want to cancel this booking?')">
+
+                    ❌ Cancel
+
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <div class="empty">
+        No bookings found.
+    </div>
+
+    {% endif %}
+
+    <div class="btns">
+
+        <a href="/search" class="btn home">
+            🏠 Back Home
+        </a>
+
+        <a href="/search" class="btn search">
+            🔍 Book Another Bus
+        </a>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

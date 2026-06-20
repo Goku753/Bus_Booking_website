@@ -1,0 +1,19 @@
+<h2>Available Buses</h2>
+
+{% for bus in buses %}
+<div style="border:1px solid;padding:10px;margin:10px;">
+    <b>{{ bus.bus_name }}</b><br>
+    Route: {{ bus.from_city }} → {{ bus.to_city }}<br>
+    Time: {{ bus.time }}<br>
+    Seats: {{ bus.seats }}<br>
+
+    <b>Stops:</b>
+    <ul>
+        {% for stop in bus.stops %}
+        <li>{{ stop }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/book/{{ bus.id }}/{{ date }}">Book Now</a>
+</div>
+{% endfor %}

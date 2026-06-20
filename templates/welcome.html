@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#0d6efd,#4dabf7);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:white;
+            width:450px;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#0d6efd;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:30px;
+        }
+
+        .btn{
+            display:block;
+            width:100%;
+            padding:14px;
+            margin:12px 0;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:18px;
+            font-weight:bold;
+            color:white;
+            transition:0.3s;
+        }
+
+        .login{
+            background:#0d6efd;
+        }
+
+        .signup{
+            background:#198754;
+        }
+
+        .admin{
+            background:#dc3545;
+        }
+
+        .btn:hover{
+            transform:translateY(-2px);
+            opacity:0.9;
+        }
+
+        .icon{
+            font-size:60px;
+            margin-bottom:15px;
+        }
+
+        .footer{
+            margin-top:20px;
+            color:#888;
+            font-size:14px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="icon">🚌</div>
+
+    <h1>Bus Booking System</h1>
+
+    <p>
+        Book bus tickets quickly and easily.
+    </p>
+
+    <a href="/login" class="btn login">
+        🔐 User Login
+    </a>
+
+    <a href="/signup" class="btn signup">
+        📝 User Signup
+    </a>
+
+    <a href="/admin-login" class="btn admin">
+        👨‍💼 Admin Login
+    </a>
+
+    <div class="footer">
+        © 2026 Bus Booking System
+    </div>
+
+</div>
+
+</body>
+</html>
